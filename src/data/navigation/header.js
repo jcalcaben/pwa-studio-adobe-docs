@@ -15,4 +15,8 @@ module.exports = [
     title: "Support",
     path: "/support/",
   },
+  {
+    title: "Tutorials",
+    path: "/tutorials/",
+  },
 ];
