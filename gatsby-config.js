@@ -10,24 +10,17 @@
  * governing permissions and limitations under the License.
  */
 
-const fs = require("fs");
-
-const globalNavFilePath = require.resolve(
-  "@adobe/gatsby-theme-aio/globalNav.json"
-);
-const globalNav = JSON.parse(fs.readFileSync(globalNavFilePath, "utf8"));
-
-globalNav.menus = [globalNav.menus[2]];
-
 const {versions, pages, subPages } = require('./src/data/navigation')
 
 module.exports = {
   siteMetadata: {
-    globalNav,
     versions: versions,
     pages: pages,
     subPages: subPages,
   },
   plugins: [`@adobe/gatsby-theme-aio`],
   pathPrefix: process.env.PATH_PREFIX || "/pwa-studio-adobe-docs/",
+  flags: {
+    DEV_SSR: false
+  },
 };
